@@ -1,26 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hello <3</title>
-<style>
-body {
-margin: 0;
-background: #000;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-color: #fff;
-font-family: Arial, sans-serif;
-}
-h1 {
-text-align: center;
-}
-</style>
-</head>
-<body>
-<h1>I love you!</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello</title>
+        
+        <style>
+            body {margin: 0;  background: #000;  display: flex;
+                justify-content: center;  align-items: center;  height: 100vh;
+                color: #fff;  font-family: "Comic Sans MS", "Comic Sans", cursive;}
+
+            h1 {text-align: center;}
+
+            .float-text {
+                position: absolute;
+                z-index: -1;
+                bottom: -100px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #fff;
+                font-size: 2rem;
+                animation: riseAndFade 7s linear infinite;
+            }
+
+            @keyframes riseAndFade {
+                0% { opacity: 1; transform: translate(-50%, ); }
+                100% { opacity: 0; transform: translate(-50%, -120vh); }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <img src="heart.png", id="flpic1", class="float-text", width="5%", height="10%">
+        <img src="heart.png", id="flpic2", class="float-text",width="5%", height="10%">
+        <img src="heart.png", id="flpic3", class="float-text",width="5%", height="10%">
+        <img src="heart.png", id="flpic4", class="float-text",width="5%", height="10%">
+        <img src="heart.png", id="flpic5", class="float-text",width="5%", height="10%">
+        <img src="heart.png", id="flpic6", class="float-text",width="5%", height="10%">
+        <h1>I love you!</h1>
+
+    </body>
+
+    <script>
+        function randomPos(elemID, min, max){
+            const elem = document.getElementById(elemID);
+            elem.style.left = Math.floor(min + (Math.random() * (max-min))) + '%';
+            const delay = Math.random() * 3 + 's';
+            elem.style.animationDelay = delay;
+        }
+
+        const elem1 = document.getElementById("flpic1", 0, 50);
+        const elem2 = document.getElementById("flpic2", 0, 66);
+        const elem3 = document.getElementById("flpic3", 33, 100);
+        const elem4 = document.getElementById("flpic4", 50, 100);
+        const elem5 = document.getElementById("flpic5", 0, 100);
+        const elem6 = document.getElementById("flpic6", 0, 100);
+
+        elem1.addEventListener("animationiteration", ()=> randomPos('flpic1', 0, 50));
+        elem2.addEventListener("animationiteration", ()=> randomPos('flpic2', 0, 66));
+        elem3.addEventListener("animationiteration", ()=> randomPos('flpic3', 33, 100));
+        elem4.addEventListener("animationiteration", ()=> randomPos('flpic4', 50, 100));
+        elem5.addEventListener("animationiteration", ()=> randomPos('flpic5', 0, 100));
+        elem6.addEventListener("animationiteration", ()=> randomPos('flpic6', 0, 100));
+
+
+        randomPos('flpic1', 0, 50);
+        randomPos('flpic2', 0, 66);
+        randomPos('flpic3', 33, 100);
+        randomPos('flpic4', 50, 100);
+        randomPos('flpic5', 0, 100);
+        randomPos('flpic6', 0, 100);
+    </script> 
 </html>
